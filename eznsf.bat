@@ -1,0 +1,2 @@
+python eznsf.py
+pause

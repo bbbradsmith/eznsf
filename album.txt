@@ -1,0 +1,76 @@
+# EZNSF album description file
+
+NSF debussy.nsf
+
+# set NROM to 1 to attempt an NROM (non-banking) build,
+# otherwise uses mapper 31
+NROM 0
+
+TITLE Suite Bergamasque
+ARTIST bradsmith / Claude Debussy
+COPYRIGHT 2011
+
+# each TRACK has:
+# time: either as a "minutes:seconds" or just "seconds" number
+# song: the original number of the song in the NSF
+# title: after the song number the rest of the line is a title for the track
+
+TRACK 03:03 1 Prelude
+TRACK 03:08 2 Menuet
+TRACK 03:26 3 Clair de Lune
+TRACK 03:33 4 Passepied
+
+# text for the info screen
+
+INFO Information:
+INFO
+INFO This ROM was built with the
+INFO EZNSF music ROM tool,
+INFO by Brad Smith, 2016.
+INFO
+INFO B - Play Track
+INFO A - Play All
+INFO START - Pause
+INFO SELECT - Cancel
+INFO
+INFO http://rainwarrior.ca
+
+# each SCREEN has:
+# 1k nametable + attributes
+# 4k background tiles (nametable)
+# 4k foreground tiles (sprites)
+# 16b background palette
+# 16b foreground palette
+
+SCREEN TITLE  title.nam  tiles.chr tiles.chr colors.pal colors.pal
+SCREEN INFO   info.nam   tiles.chr tiles.chr colors.pal colors.pal
+SCREEN TRACKS tracks.nam tiles.chr tiles.chr colors.pal colors.pal
+SCREEN PLAY   play.nam   tiles.chr tiles.chr colors.pal colors.pal
+
+# tile coordinates of text, or pixel coordinates of visual elements
+
+COORD TITLE_TITLE       2 6
+COORD TITLE_ARTIST      2 7
+COORD TITLE_COPYRIGHT   2 8
+COORD TITLE_START       16 128   # pixel position of start indicator
+COORD TITLE_INFO        16 144   # pixel position of info indicator
+
+COORD INFO              2 2      # subsequent lines start below this point
+
+COORD TRACKS_TITLE      2 2
+COORD TRACKS_ARTIST     2 3
+COORD TRACKS_COPYRIGHT  2 4
+COORD TRACKS_TRACK      4 6      # subsequent tracks on each line
+
+COORD PLAY_TRACK        2 23     # tile position of track name
+COORD PLAY_TIME         16 168   # pixel position of time indicator
+
+# sprite tiles used
+
+CONST SPRITE_CHOOSE 4
+CONST SPRITE_PLAY 4
+CONST SPRITE_PLAY_ALL 5
+CONST SPRITE_PAUSE 6
+CONST SPRITE_STOP 7
+CONST SPRITE_ZERO 48
+CONST SPRITE_COLON 58
