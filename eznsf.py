@@ -461,7 +461,7 @@ else:
 def ppu_file_enum(s):
     so = ""
     for c in s:
-        so += c if ((c>='a' and c<='z') or (c>='A' and c<='Z')) else "_"
+        so += c if ((c>='a' and c<='z') or (c>='A' and c<='Z') or (c>='0' and c<='9')) else "_"
     return so
 
 s = ""
