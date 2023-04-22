@@ -37,12 +37,13 @@ Directions:
  
 NSF Requirements:
 
- * No expansion sound.
+ * No expansion sound
  * Standard engine rate only (60/50 Hz)
  * NSF may not bankswitch F000
  * NSF may not use RAM (or clear it during init) in the range $600-7FF
  * NSF may not use zero page (or clear it) in the range $FC-FF
  * NSF may not depend on WRAM present at $6000-7FFF
+ * DPCM samples at F000-FFFF will not play correctly with mapper 31 (see NROM below)
 
  This program was primarily intended for use with Famitracker, which
  should normally obey all of these requirements since at least 0.4.5 if not earlier.
@@ -64,6 +65,12 @@ Notes:
  Simply create a line that says "NROM = 1" in your album.txt file.
  The NROM version will require about 3kb of empty space, so the build may fail if not
  enough room can be found. An example is included as "album_nrom.txt".
+ 
+ If using mapper 31, DPCM samples can't be played correctly out of the F000-FFFF
+ memory region, as EZNSF will bankswitch this area for its own needs. If the NSF does not
+ need bankswitching, try NROM instead, but otherwise you might try the more advanced
+ ZENSF tool:
+   * ZENSF: https://github.com/bbbradsmith/zensf
 
  This tool also uses the track times and names to produce an NSFe file in the output
  directory. An NSFe is like an NSF but with playlist features like individual track
